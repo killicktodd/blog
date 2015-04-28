@@ -1,0 +1,27 @@
+<section class="post__title">
+	<h2><%= @post.title %></h2>
+	<p>By <%= link_to @post.author, root_path(author: @post.author.downcase.to_param) %></p>
+	<p>
+		<small>Posted <%= time_ago_in_words @post.created_at %> ago</small>
+	</p>
+
+	<!-- add publicatin logic -->
+
+<div class="actions">
+	<%= link_to "home", root_path, class: "actions__link" %>
+	<span>•</span>
+	<%= link_to "edit", edit_post_path(@post), class: "actions__link" %>
+	<span>•</span>
+	<%= link_to "delete", post_path(@post), method: :delete, confirm: true %>
+</div>
+
+<div>
+	<!-- refactor into helper -->
+	<% if @post.pull_quote.present? %>
+		<blockquote><%= @post.pull_quote %></blockquote>
+	<% end %>
+</div>
+</section>
+<section class="post__body">
+	<%= simple_format @post.body %>
+</section>

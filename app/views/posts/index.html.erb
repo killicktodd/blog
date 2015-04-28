@@ -1,0 +1,25 @@
+<header>
+	<h1>
+		<%= link_to "Writing Ruby", root_path %>
+	</h1>
+	<!-- add in quotes for carousel -->
+	<div class="carousel">
+		<h3>The first draft of anything is shit. </br><cite>- Hemmingway</cite></h3>
+	</div>
+</header>
+
+<!-- add in pagination -->
+
+<section class="posts">
+	<% @posts.each do |post| %>
+		<section class="post>"
+			<h2><%= link_to post.title, post_path(post) %></h2>
+			<p><%= truncate post.body, length: 90, seperator:" " %></p>
+			<p>
+				<small>Posted <%= time_ago_in_words post.created_at %> ago</small>
+				<!-- add in link to publication later -->
+			</p>
+		</section>
+	<% end %>
+	<!-- add in pagination -->
+</section>
