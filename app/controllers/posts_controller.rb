@@ -3,9 +3,13 @@ class PostsController < ApplicationController
   before_action :find_post, except: [:index, :new, :create]
 
   def index
-  	# assign all posts to @posts
-  	@posts = Post.all.page params[:page]
-  	# render the index template (implicitly happening behind the scenes)
+  	if params[:author].present?
+      @posts = Post.from_param(params[:author]).page params[:page]
+    else
+      # assign all posts to @posts
+    	@posts = Post.all.page params[:page]
+    end
+    @quotes = @posts.pluck(:pull_quote)
   end
 
   def show
@@ -40,7 +44,7 @@ class PostsController < ApplicationController
 
   def update
   	# assign the post we want to edit to @post
-  	if @post.save
+  	if @post.update(post_params)
       flash[:success] = "Successfully updated a post"
       redirect_to @post
     else

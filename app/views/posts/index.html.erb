@@ -2,13 +2,13 @@
 	<h1>
 		<%= link_to "Writing Ruby", root_path %>
 	</h1>
-	<!-- add in quotes for carousel -->
-	<div class="carousel">
+
+
+	<div class="carousel" data-quotes="<%= @quotes %>">
 		<h3>The first draft of anything is shit. </br><cite>- Hemmingway</cite></h3>
 	</div>
 </header>
 
-<!-- add in pagination -->
 <nav class="pagination pagination__top">
 	<span class = "next">
 		<%= link_to_next_page @posts, 'Next Page'%>
