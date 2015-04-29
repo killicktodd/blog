@@ -9,6 +9,14 @@
 </header>
 
 <!-- add in pagination -->
+<nav class="pagination pagination__top">
+	<span class = "next">
+		<%= link_to_next_page @posts, 'Next Page'%>
+	</span>
+	<span class = "previous">
+		<%= link_to_previous_page @posts, 'Previous Page'%>
+	</span>
+</nav>
 
 <section class="posts">
 	<% @posts.each do |post| %>
