@@ -5,8 +5,7 @@ class PostsController < ApplicationController
   def index
   	if params[:author].present?
       @posts = Post.from_param(params[:author]).page params[:page]
-    else
-      # assign all posts to @posts
+    else  
     	@posts = Post.all.page params[:page]
     end
     @quotes = @posts.pluck(:pull_quote)

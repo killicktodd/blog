@@ -5,7 +5,9 @@
 		<small>Posted <%= time_ago_in_words @post.created_at %> ago</small>
 	</p>
 
-	<!-- add publicatin logic -->
+	<p>
+		<small><%= link_to_publication(@post) if @post.published? %></small>
+	</p>
 
 <div class="actions">
 	<%= link_to "home", root_path, class: "actions__link" %>
