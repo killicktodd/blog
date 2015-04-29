@@ -2,7 +2,9 @@ class CommentsController < ApplicationController
   
   def new
   	# find the post
+  	@post = Post.find(params[:post_id])
   	# Assign a new empty comment to @comment
+  	@comment = @post.comments.new
   end
 
   def create
@@ -35,5 +37,5 @@ class CommentsController < ApplicationController
   end
 
   # Whitelist the data from the form
-  
+
 end
