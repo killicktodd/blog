@@ -9,7 +9,9 @@ class PostsController < ApplicationController
   end
 
   def show
-  	# assign one post to @post
+  	# assign one post to @post -> refactord in the before_action
+    # assign all comments for the post to @comments
+    @comments = @post.comments.all
   	# render the show template
   end
 
