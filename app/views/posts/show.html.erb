@@ -12,7 +12,7 @@
 	<span>•</span>
 	<%= link_to "edit", edit_post_path(@post), class: "actions__link" %>
 	<span>•</span>
-	<%= link_to "delete", post_path(@post), method: :delete, confirm: true %>
+	<%= link_to "delete", post_path(@post), class:"actions__link", method: :delete, confirm: true %>
 </div>
 
 <div>
