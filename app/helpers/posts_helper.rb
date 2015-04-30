@@ -5,7 +5,7 @@ module PostsHelper
 		end
 	end
 
-	def link_to_publication(post, opts = {})
+	def pub_url(post, opts = {})
 		if opts[:separator]
 			"<span class=\"separator\">•</span>Published in #{link_to post.publication, post.url} on #{post.published_at}".html_safe
 		else

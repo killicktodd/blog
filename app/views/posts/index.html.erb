@@ -24,7 +24,8 @@
 			<h2><%= link_to post.title, post_path(post) %></h2>
 			<p><%= truncate post.body, length: 90, seperator:" " %></p>
 			<p>
-				<small>Posted <%= time_ago_in_words post.created_at %> ago. <%= link_to_publication(post, :separator => true) if post.published? %></small>
+				<small>Posted <%= time_ago_in_words post.created_at %> ago.</small> 
+				<!-- would include URL as  <%= pub_url(post, :separator => true) if post.published? %> but bugs -->			
 			</p>
 		</section>
 	<% end %>

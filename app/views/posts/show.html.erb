@@ -6,7 +6,8 @@
 	</p>
 
 	<p>
-		<small><%= link_to_publication(@post) if @post.published? %></small>
+		<!-- would include publicaiton URL as  <%= pub_url(post, :separator => true) if post.published? %> but bugs -->
+			
 	</p>
 
 <div class="actions">
